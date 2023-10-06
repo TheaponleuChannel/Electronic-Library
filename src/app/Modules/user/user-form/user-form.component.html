@@ -1,0 +1,79 @@
+<mat-card class="w-4/6  mt-32 shadow-none bg-transparent border-none min-w-fit ">
+    <div class="flex justify-between h-[125px]" >
+        <div class="w-48 h-48 rounded-full cursor-pointer relative bottom-20 right-0
+            bg-no-repeat z-10 bg-contain bg-center" >
+            <input class="w-48 h-48 rounded-full opacity-0 cursor-pointer absolute bottom-0 right-0" 
+            type="file">
+            <img #imgRef src="./assets/image/pngwing.com.png" alt="img not found">
+            <div class="absolute bottom-0 right-7 top-36 z-20 max-lg:right-9 max-sm:top-[139px]">
+                <mat-icon class="text-white shadow-md " id="upload-icon" >add_a_photo</mat-icon>
+            </div>
+
+        </div>
+        <div class="w-3/4 max-md:w-[70%] text-center flex justify-center items-center ">
+            <h1 class=" text-[#1900B4]  ">User Information</h1>
+        </div>
+    </div>
+    <div>
+        <form [formGroup]="form" class="flex flex-col gap-3" (ngSubmit)="onSubmit()">
+            <div class="flex flex-col">
+                <!-- <mat-form-field >
+                    <input class="bg-red-600"  type="text" matInput >
+                </mat-form-field> -->
+                <input type="text" placeholder="User Name" formControlName="username" required
+                class="w-5/6 border-[#1900B4] placeholder:text-black placeholder:text-opacity-40 bg-[#D9D9D9]  
+                rounded-[4px] py-2 px-4 focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm
+                invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
+                >
+                <!-- <mat-error *ngIf="form.get('username').touched && form.get('username').hasError('required')" class="text-red font-['Inter'] pl-2">This Field is Required</mat-error> -->
+                <span class="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown) :not(:focus) :invalid]:block">
+                    Please enter a valid email address
+                  </span>
+            </div>
+            <div>
+                <input type="email" placeholder="Email" formControlName="email"
+                class="w-5/6 border-[#1900B4] placeholder:text-black placeholder:text-opacity-40 bg-[#D9D9D9]
+                rounded-[4px] py-2 px-4 focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm"
+                >
+            </div>
+            <div>
+                <select formControlName="gender" 
+                class="w-5/6 border-[#1900B4] placeholder:text-black placeholder:text-opacity-40 bg-[#D9D9D9]
+                rounded-[4px] py-2 px-4 focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm"
+                 >  <option value="" readonly="true" disabled selected class="peer-read-only:disabled:text-gray-600" >Please select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" formControlName="phone" placeholder="Phone"
+                class="w-5/6 border-[#1900B4] placeholder:text-black placeholder:text-opacity-40 bg-[#D9D9D9]
+                rounded-[4px] py-2 px-4 focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm"
+                >
+            </div>
+            <div>
+                <input type="text" placeholder="address" formControlName="address"
+                class="w-5/6 border-[#1900B4] placeholder:text-black placeholder:text-opacity-40 bg-[#D9D9D9]	
+                rounded-[4px] py-2 px-4 focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm"
+                >
+            </div>
+            <div class="flex justify-end p-7 gap-5">
+                <span >
+                    <button type="button" routerLink="/user" class="border-[1px] border-[#1900B4] px-5 py-2 rounded flex justify-center gap-2
+                    text-base font-['Inter'] text-[#1900B4] hover:bg-red-500 hover:text-white">
+                        Back
+                        <mat-icon >keyboard_backspace</mat-icon>
+                    </button>
+                </span>
+                <span >
+                    <button type="submit" class="bg-[#1900B4] px-5 py-2 rounded font-['Inter'] text-base text-white
+                    flex justify-center gap-2">
+                        {{this.userId ? 'Update' : 'Create'}}
+                        <mat-icon >check</mat-icon>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+</mat-card>
+<pre>{{form.value | json}}</pre>

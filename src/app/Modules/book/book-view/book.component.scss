@@ -1,0 +1,18 @@
+.mat-typography p{
+    margin: 0;
+}
+.cover-bg:hover {
+    .hr{
+        @apply opacity-100 delay-150;
+    }
+    .description{
+        @apply opacity-100 delay-150;
+    }
+    .button{
+        @apply opacity-100 delay-150 ;
+    }
+    .title{
+        @apply translate-y-0 duration-1000;
+    }
+
+}

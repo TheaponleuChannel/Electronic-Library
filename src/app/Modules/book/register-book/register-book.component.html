@@ -1,0 +1,83 @@
+<div class="shadow-xl h-full w-4/5 mt-2 p-7 flex gap-4 max-sm:w-full ">
+  <div class="w-full">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="flex gap-3 w-full max-sm:w-full max-sm:flex-col">
+        <div class="flex flex-col gap-3 w-full">
+          <input
+            class="p-3 w-full bg-[#D9D9D9] rounded focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm"
+            type="text"
+            formControlName="title"
+            placeholder="Title"
+          />
+  
+          <input 
+            class="p-3 w-full bg-[#D9D9D9] rounded focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm"
+            type="text" 
+            formControlName="author" 
+            placeholder="Author" 
+          />
+  
+          <select
+            formControlName="category" 
+            class="w-full p-3 bg-[#D9D9D9] rounded focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm"
+          >
+            <option class="text-gray-400 text-opacity-50" value="" readonly="true" hidden="true" selected > Please choose Category...</option>
+            <option value="1">Fairy tales</option>
+            <option value="2">Horror</option>
+            <option value="3">Adventure stories</option>
+            <option value="4">Fantasy</option>
+            <option value="4">Classics</option>
+            <option value="4">Crime</option>
+          </select>
+  
+          <input
+            class="p-3 w-full bg-[#D9D9D9] rounded focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm"
+            type="datetime-local" 
+            formControlName="registerDate"
+          />
+
+          <input type="url" formControlName="cover" placeholder="Cover Url" class="p-3 w-full bg-[#D9D9D9] rounded focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm">
+  
+          <div class="w-full">
+            <textarea
+              formControlName="description"
+              class="p-3 w-full h-[330px] max-sm:h-[100px] bg-[#D9D9D9] rounded focus-within:text-black focus:outline-2 focus:outline-[#1900B4] font-['Inter'] font-medium text-sm"
+            ></textarea>
+          </div>
+
+
+        </div>
+        <div
+          class="w-96 max-sm:w-full max-sm:h-72 bg-cover object-contain bg-center bg-no-repeat rounded border-[2px]"
+          style="background-image: url('https://i.pinimg.com/564x/37/b8/4a/37b84a3434b89268cc3fb52accdd7eb6.jpg');"
+        >
+        <span
+          class="z-10 h-full flex justify-center items-center cursor-pointer duration-500 hover:bg-black hover:bg-opacity-60"
+        >
+          <button class="px-3 py-2 flex justify-center gap-3 bg-[#1900B4] font-['Inter'] text-white text-base rounded-xl opacity-0 duration-300 button">
+            <input #imgRef type="file" style="cursor: pointer;" class="opacity-0 absolute w-[140px] h-[40px] right-[390px] top-[395px] bg-red-500" onchange="saveImg(this)">
+            <!-- <img src="./assets/image/upload.png" alt="Image not found"> -->
+            <mat-icon>save_alt</mat-icon>
+            Upload file
+          </button>
+        </span>
+      </div>
+      </div>
+
+      <div class="flex justify-end gap-2 pt-5 flex-wrap">
+        <button type="button" routerLink="/book" 
+                class=" text-[#1900B4] w-20 flex items-center gap-1 text-base 
+                      font-['Inter'] px-2 py-1 rounded border-[1px] border-[#1900B4]
+                      hover:bg-red-500 hover:text-white " >
+            Back
+            <mat-icon >keyboard_backspace</mat-icon>
+        </button>
+        <button type="submit" 
+            class="bg-[#1900B4] w-24 flex items-center gap-1 text-white text-base font-['Inter'] px-2 py-1 rounded" >
+            Submit
+            <mat-icon >check</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

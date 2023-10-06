@@ -1,0 +1,32 @@
+#breadcrumb{
+    display: flex;
+    padding: 70px 40px 0;
+
+    ul{
+        display: flex;
+        li{
+            cursor: pointer;
+            list-style-type: none; 
+            &:not(:first-child):before{
+                content: "/\A0";
+                font-size: 40px;
+                color: #1900B4;
+                margin-right: -10px;
+                padding: 15px;
+                cursor: text;
+            } 
+
+            a{
+                text-decoration: none;
+                font-size: 40px;
+                font-weight: 380;
+                font-family: Lemonada;
+                color: #1900B4;
+            }
+        }
+    }
+
+    .custom-anchor {
+        cursor: text !important;
+    }
+}

@@ -1,0 +1,31 @@
+<mat-drawer-container class="container-sidenav" autosize>
+  <div *ngIf="!drawer.opened" class="btn-toggle" >
+    <button type="button" mat-icon-button (click)="drawer.open()"  [@inOutAnimation]>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+    <mat-drawer #drawer class="sidenav-content" mode="side" (opened)="showFiller = true" (closed)="showFiller = false" opened>
+      <div class="header-sidenav">
+        <h3>E-LIBRARY</h3>
+        <span id="back-icon" (click)="drawer.toggle()">
+          <span class='material-icons'>arrow_back_ios</span>  
+        </span>
+      </div>
+
+      <div class="sidenav-menu" >
+        <app-sidenav></app-sidenav>
+      </div>
+    </mat-drawer>
+
+    <div class="min-h-screen">
+      <span class="h-full w-full absolute top-0 left-0 flex items-center bg-black bg-opacity-40" *ngIf="isLoading">
+        <app-app-loader></app-app-loader>
+      </span>
+      <app-breadcrumb></app-breadcrumb>
+      <div class="mx-10 z-10">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+  </mat-drawer-container>

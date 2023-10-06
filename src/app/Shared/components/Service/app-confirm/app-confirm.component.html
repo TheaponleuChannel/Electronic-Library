@@ -1,0 +1,26 @@
+<div >
+    <div class="flex justify-center items-center flex-col">
+        <div class="p-2">
+            <!-- <mat-icon class="text-red-600 w-16 h-16">delete_sweep</mat-icon> -->
+            <img class="w-16 h-16" src="../../../../assets/image/pngwing.com.png" alt="Image not found">
+        </div>
+        <div class="text-center px-4">
+            <b><h1>{{data.title}}</h1> </b>
+            <p>{{data.message}}</p>
+            <p>{{data.otherMessage}}</p>
+        </div>
+    </div>
+
+    <div class="flex justify-between">
+        <button 
+            (click)="dialogRef.close(false)"
+            class="w-full bg-blue-500 py-2">
+            No
+        </button>
+        <button 
+            (click)="dialogRef.close(true)"
+            class="w-full bg-red-500 py-2">
+            OK
+        </button>
+    </div>
+</div>

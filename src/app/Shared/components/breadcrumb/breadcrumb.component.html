@@ -1,0 +1,12 @@
+<div id="breadcrumb">
+    <ul *ngIf="routerPaths.length === 1">
+        <li *ngFor="let part of routerPaths" >
+            <a style="cursor: text;"> {{ part?.breadcrumb}} </a>
+        </li>
+    </ul>
+    <ul *ngIf="routerPaths.length > 1">
+        <li *ngFor="let part of routerPaths; let isFirst = first; let isLast = last">
+          <a [routerLink]="isFirst ?  '/'+part.url : null" [ngClass]="{'custom-anchor': !isFirst}" >{{part.breadcrumb}}</a>
+        </li>
+      </ul>
+</div>

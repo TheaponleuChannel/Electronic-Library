@@ -1,0 +1,6 @@
+.bg-cover:hover{
+    @apply border-[#1900B4];
+    .button{
+        @apply opacity-100 delay-300 duration-500 ;
+    }
+}

@@ -1,0 +1,123 @@
+<div class="h-screen" >
+    <div class="flex gap-7 p-5 ">
+        <div class="w-full h-full gap-3">
+            <div class="ml-3">
+                <h1>{{data.bookData.title}}</h1>
+                <p>status</p>
+            </div>
+            <div class="bg-gray-400 p-5 rounded-md flex gap-4  ">
+                <div class="w-2/3 gap-3">
+                    <p class="flex justify-start items-center gap-4">
+                        <mat-icon>face</mat-icon>
+                        {{data.bookData.author}}
+                    </p>
+                    <div class="bg-white rounded-xl h-[250px] p-10 mt-2 flex gap-5">
+                        <div class="w-2/3 flex flex-col gap-10 ">
+                            <p class="text-xs mr-6">
+                                <span class="text-[#1900B4]"><b>{{data.bookData.title}}!</b></span> This book is available
+                            </p>
+                            <button class="bg-[#1900B4] self-center rounded w-[122px] px-4 py-2 font-['Inter'] text-base text-white">
+                                Borrow Now
+                            </button>
+                        </div>
+                        <div class="w-[170px] h-[170px]">
+                            <img class="w-full h-full" src="https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?w=2000" alt="Image Not found">
+                        </div>
+                    </div>
+                    <span class="p-5" >
+                        <p>
+                            In Press books, the Book Info page is where you put information about your book. In the book publishing industry, this is called “metadata”. Metadata allows book stores and libraries to accurately categorize a book and makes it easier for readers to find by answering questions like: What is this book’s title? Who is the author? When was it published? and What is the book about?
+                            Some book info (metadata) is required and will be filled in by default when you create your book. Required metadata allows Pressbooks to build your book’s home page, automatically generate the cover, title page, and copyright notice in your book exports, and meet the metadata requirements of ebook sellers for your EPUB exports. In general, we recommend adding as much information as you can when creating your book.
+                        </p>
+                    </span>
+                </div>
+                <div class="mt-7 max-h-[514px] overflow-auto w-full" >
+                    <div class="text-[#1900B4] font-['Inter'] text-base">
+                        <p><b>Borrow Records</b></p>
+                    </div>
+                    <div>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                        user record <br>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="min-w-[500px] h-[693px]">
+            <img class="w-full h-full object-cover bg-cover bg-center" [src]="bookCover" alt="Image not found">
+            
+        </div>
+    
+    </div>
+    <div class="flex justify-end pb-5 mr-5">
+        <button (click)="close()"
+                class="border-[1px] flex items-center gap-1 border-[#1900B4] hover:bg-red-500 hover:text-[white] rounded text-base font-['Inter'] px-4 py-1" type="button">
+            Close
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</div>
+
