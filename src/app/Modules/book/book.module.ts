@@ -9,6 +9,7 @@ import { SearchBookPipe } from './book-view/search-book.pipe';
 import { RegisterBookComponent } from './register-book/register-book.component';
 import { ViewDetailBookComponent } from './view-detail-book/view-detail-book.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CloudinaryModule } from '@cloudinary/ng';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ShareMaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    CloudinaryModule
   ]
 })
 export class BookModule { }

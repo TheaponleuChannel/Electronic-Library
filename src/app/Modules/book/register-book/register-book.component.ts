@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
+import { fill } from '@cloudinary/url-gen/actions/resize';
 import { finalize } from 'rxjs';
 import { IBook } from 'src/app/Models/book';
 import { BookService } from 'src/app/Shared/Service/book.service';
@@ -16,6 +18,7 @@ export class RegisterBookComponent implements OnInit {
   form : FormGroup;
   books : IBook[] = [];
   userId : number;
+  img : CloudinaryImage;
   constructor(
     private fb : FormBuilder,
     private bookService : BookService,
@@ -26,6 +29,17 @@ export class RegisterBookComponent implements OnInit {
   ngOnInit() {
     this.userId = this.route.snapshot.params['id'];
     this.createForm();
+    
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'demo'
+    }
+  });
+
+  this.img = cld.image('docs/models');
+
+  // Resize to 250 x 250 pixels using the 'fill' crop mode.
+  this.img.resize(fill().width(250).height(250));
   }
 
   createForm(){
@@ -51,5 +65,7 @@ export class RegisterBookComponent implements OnInit {
   saveImg(){
     
   }
+    // Instantiate a CloudinaryImage object for the image with the public ID, 'docs/models'.
+   
 
 }

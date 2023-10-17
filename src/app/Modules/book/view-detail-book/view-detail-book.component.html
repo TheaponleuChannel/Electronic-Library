@@ -1,4 +1,4 @@
-<div class="h-screen" >
+<!-- <div class="h-screen" >
     <div class="flex gap-7 p-5 ">
         <div class="w-full h-full gap-3">
             <div class="ml-3">
@@ -119,5 +119,28 @@
             <mat-icon>close</mat-icon>
         </button>
     </div>
-</div>
+</div> -->
+<div class=" px-4 py-6 w-full bg-red-500">
+    <div class="flex gap-4 flex-row bg-blue-600">
+        <div class="bg-pink-500">
+            <!-- header -->
+            <h1>{{data.bookData.title}}</h1>
+            <p>status</p>
 
+            <!-- content -->
+            <div class="content bg-gray-400 rounded-lg flex gap-4 p-4 ">
+                <!-- description -->
+                <div class="description">
+                    description
+                </div>
+                <!-- record -->
+                <div class="record">
+                    record
+                </div>
+            </div>
+        </div>
+        <div class="bg-green-500 h-[500px]">
+            <img class="w-full h-full object-cover bg-cover bg-center" [src]="bookCover" alt="Image not found">
+        </div>
+    </div>
+</div>

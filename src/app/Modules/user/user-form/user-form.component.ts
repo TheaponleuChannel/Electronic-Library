@@ -15,6 +15,8 @@ export class UserFormComponent implements OnInit {
 
   form : FormGroup;
   userId : number;
+  public imageSrc : string | File = './assets/image/profile.jpg';
+  public addData = {newData : 'Data'};
   constructor(
     private fb : FormBuilder,
     private router : Router,
@@ -27,6 +29,12 @@ export class UserFormComponent implements OnInit {
     this.createForm();
     this.userId = this.route.snapshot.params['id'];
     this.userId && this.showFormEdit();
+    // const savedImageSrc = localStorage.getItem('profileImage');
+    // if (savedImageSrc) {
+    //   this.imageSrc = savedImageSrc;
+    // } else {
+    //   this.imageSrc = './assets/image/profile.jpg'; // Default image
+    // }
   }
 
   createForm(){
@@ -40,19 +48,24 @@ export class UserFormComponent implements OnInit {
   }
 
   onSubmit(){
-    this.userId ? this.updateUser() : this.saveUser();
-    // this.saveUser();
-    
+    this.userId ? this.updateUser() : this.saveUser();    
   }
 
   saveUser(){
-    this.loaderService.open();
-    this.userService.saveUser(this.form.value)
-    .pipe(finalize(() => {this.loaderService.close()}))
-    .subscribe((res: IUser) => {
-      this.router.navigateByUrl('/user');
-
-    })
+    // const formDataWithNewData = {...this.form.value, ...this.addData};
+    if(this.imageSrc){
+      const formDataWithImage =  new FormData();
+      formDataWithImage.append('image', this.imageSrc);
+      formDataWithImage.append('userData', JSON.stringify(this.form.value));
+      console.log('Form Data',formDataWithImage);
+      
+      this.loaderService.open();
+      this.userService.saveUser(this.form.value)
+      .pipe(finalize(() => {this.loaderService.close()}))
+      .subscribe((res) => {
+        this.router.navigateByUrl('/user');
+      })
+    }
   }
 
   showFormEdit(){
@@ -70,5 +83,20 @@ export class UserFormComponent implements OnInit {
     .subscribe((res : IUser) => {
       this.router.navigateByUrl('/user');
     })
+  }
+
+  public onAttachFileUpload(event : Event){
+    const input = event.target as HTMLInputElement;
+    if (input?.files && input.files[0]) {
+      this.imageSrc = input.files[0];
+
+      // Read the file as a URL
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.imageSrc = e.target.result as string; // Update image source
+        localStorage.setItem('profileImage', this.imageSrc); // Save to local storage
+      };
+      reader.readAsDataURL(this.imageSrc);
+    }
   }
 }

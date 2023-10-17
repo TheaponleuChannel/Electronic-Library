@@ -23,6 +23,31 @@
       "address": "fsdvfds",
       "phone": "fds",
       "id": 5
+    },
+    {
+      "username": "f",
+      "gender": "",
+      "email": "df",
+      "address": "fd",
+      "phone": "df",
+      "newData": "Data",
+      "id": 6
+    },
+    {
+      "username": "",
+      "gender": "",
+      "email": "",
+      "address": "",
+      "phone": "",
+      "id": 7
+    },
+    {
+      "username": "",
+      "gender": "",
+      "email": "",
+      "address": "",
+      "phone": "",
+      "id": 8
     }
   ],
   "books": [
@@ -127,6 +152,15 @@
       "cover": "",
       "description": "",
       "id": 13
+    },
+    {
+      "title": "",
+      "author": "",
+      "category": "",
+      "registerDate": "",
+      "cover": "",
+      "description": "",
+      "id": 14
     }
   ],
   "profile": {

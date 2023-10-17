@@ -10,7 +10,8 @@ export class HomeComponent {
 
   constructor(
     private confirmService : AppConfirmService
-  ){}
+  ){
+  }
 
   public confirm(){
     // this.confirmService.confirm({
@@ -22,4 +23,5 @@ export class HomeComponent {
     
     alert('clicked');
   }
+
 }

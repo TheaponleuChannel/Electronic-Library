@@ -32,6 +32,11 @@ export const routes: Routes = [
       //   loadChildren: () => import('./Modules/test-table/test-table.module').then(m => m.TestTableModule),
       //   data: { title: 'Test', breadcrumb: 'Test', animation: 'test' }
       // }
+      {
+        path: 'login',
+        loadChildren: () => import('./Modules/login/login.module').then(m => m.LoginModule),
+        data: { title: 'Login', breadcrumb: 'Login', animation: 'login' }
+      }
     ]
   }
 ];
