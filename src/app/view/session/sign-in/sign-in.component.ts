@@ -4,18 +4,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
-  selector: 'app-log-in',
-  templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.scss']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss']
 })
-export class LogInComponent implements OnInit{
+export class SignInComponent implements OnInit{
+
   form : FormGroup;
-  reUrl : string = 'admin-login';
+  reUrl : string = 'session-sign-in';
   constructor(
-    private fb : FormBuilder,
     private authService : AuthService,
     private router : Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute : ActivatedRoute,
+    private fb : FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -29,11 +30,11 @@ export class LogInComponent implements OnInit{
   createForm(){
     this.form = this.fb.group({
       email : [''],
-      password : [''],
+      password : ['']
     })
   }
 
-  onSubmit(){
+  public onSubmit(){
     this.form.markAllAsTouched();
     const email = this.form.get('email').value;
     const password = this.form.get('password').value;

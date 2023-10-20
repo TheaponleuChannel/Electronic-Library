@@ -56,7 +56,9 @@ export class BookComponent implements OnInit {
   viewBook(id : number){
     const bookData = this.books.find(book => book.id == id);
     const dialogRef = this.dialog.open(ViewDetailBookComponent, {
-      disableClose: true,
+      disableClose: false,
+      width: "2000px",
+      height: "900px",
       data : {
         bookData : bookData
       }

@@ -16,6 +16,15 @@
       <div class="sidenav-menu" >
         <app-sidenav></app-sidenav>
       </div>
+
+      <div class="compact-menu">
+        <p>
+          User Name
+        </p>
+        <span (click)="logout() " class="cursor-pointer">
+          <mat-icon matTooltip="Logout" aria-hidden="false">login</mat-icon>
+        </span>
+      </div>
     </mat-drawer>
 
     <div class="min-h-screen">

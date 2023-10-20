@@ -14,7 +14,8 @@
     width: 170px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    padding: 10px 20px;
+    padding: 10px 15px;
+    display: flex;
     overflow: hidden;
     
     .header-sidenav {
@@ -50,6 +51,14 @@
     .sidenav-menu{
       padding: 0;
       overflow: hidden;
+    }
+
+    .compact-menu {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: space-around;
+      gap: 40px;
     }
 
   }

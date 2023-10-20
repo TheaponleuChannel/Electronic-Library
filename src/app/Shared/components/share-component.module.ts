@@ -12,6 +12,7 @@ import { DataGridComponent } from './data-grid/data-grid.component';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { CdkTableModule } from '@angular/cdk/table';
+import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 
 const components = [
   AdminLayoutComponent,
@@ -28,6 +29,7 @@ const components = [
 @NgModule({
   declarations: [
     components,
+    AuthLayoutComponent,
   ],
   imports: [
     CommonModule,

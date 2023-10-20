@@ -8,6 +8,8 @@ import { ShareModule } from './Shared/share.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './core/auth.service';
+import { AuthGuardService } from './core/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     
     
   ],
-  providers: [],
+  providers: [AuthService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

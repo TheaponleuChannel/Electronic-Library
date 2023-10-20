@@ -1,6 +1,9 @@
 import { ApplicationConfig, NgModule } from '@angular/core';
 import { RouterModule, Routes, provideRouter } from '@angular/router';
 import { AdminLayoutComponent } from './Shared/components/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './Shared/components/auth-layout/auth-layout.component';
+import { AuthGuardService } from './core/auth-guard.service';
+// import { AuthGuardService } from './core/auth-guard.service';
 
 export const routes: Routes = [
   {
@@ -9,13 +12,26 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path : '',
+    component : AuthLayoutComponent,
+    children : [
+      {
+        path : 'session',
+        loadChildren: () => import('./view/session/session.module').then(m => m.SessionModule),
+        data: { title: 'Session'}
+      }
+    ]
+  },
+  {
     path: '',
     component: AdminLayoutComponent,
+    // canActivate: [AuthGuardService],
+    // canActivateChild: [],
     children: [
       {
         path: 'home-page',
         loadChildren: () => import('./Modules/home/home.module').then(m => m.HomeModule),
-        data: { title: 'Home', breadcrumb: 'Welcome!', animation : 'home' }
+        data: { title: 'Home-title-set-in-route', breadcrumb: 'Welcome!', animation : 'home' }
       },
       {
         path: 'book',
@@ -33,9 +49,9 @@ export const routes: Routes = [
       //   data: { title: 'Test', breadcrumb: 'Test', animation: 'test' }
       // }
       {
-        path: 'login',
+        path: 'admin-login',
         loadChildren: () => import('./Modules/login/login.module').then(m => m.LoginModule),
-        data: { title: 'Login', breadcrumb: 'Login', animation: 'login' }
+        data: { title: 'Admin Login', breadcrumb: 'Admin Login', animation: 'login' }
       }
     ]
   }

@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user-view/user.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { AuthGuardService } from 'src/app/core/auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: UserComponent
+    component: UserComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'add-new',

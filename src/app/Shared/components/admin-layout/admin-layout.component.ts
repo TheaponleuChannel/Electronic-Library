@@ -1,8 +1,10 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { trigger, transition, style, animate} from '@angular/animations';
-import { ChildrenOutletContexts, RouterLink, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from '../../Animation/animation-route';
 import { AppLoaderService } from '../Service/app-loader/app-loader.service';
+import { AuthService } from 'src/app/core/auth.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-admin-layout',
@@ -30,7 +32,9 @@ export class AdminLayoutComponent implements OnInit, AfterContentChecked {
   constructor(
     private contexts : ChildrenOutletContexts,
     private loader : AppLoaderService,
-    private cdr : ChangeDetectorRef
+    private cdr : ChangeDetectorRef,
+    private authService : AuthService,
+    private router : Router
   ) { }
 
   getRouteAnimationData(){
@@ -48,6 +52,13 @@ export class AdminLayoutComponent implements OnInit, AfterContentChecked {
 
   ngAfterContentChecked(): void {
     this.cdr.detectChanges();
+  }
+
+  public logout() : Observable<boolean>{
+    this.authService.logoutUser();
+    this.router.navigate(['/session/sign-in']);
+
+    return of(true);
   }
 
 }
